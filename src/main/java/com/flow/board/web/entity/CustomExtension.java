@@ -5,7 +5,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "CUSTOM_EXTENSION")
 public class CustomExtension {
@@ -14,4 +20,5 @@ public class CustomExtension {
     private long id;
 
     private String name;
+
 }
