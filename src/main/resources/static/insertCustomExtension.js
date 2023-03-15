@@ -15,7 +15,7 @@ let object = {
         }
         $.ajax({
             type: "POST",
-            url: "/add-custom",
+            url: "/custom",
             data: JSON.stringify(CustomExtension),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
