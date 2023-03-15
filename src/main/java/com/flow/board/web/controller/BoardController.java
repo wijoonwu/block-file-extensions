@@ -8,10 +8,9 @@ import com.flow.board.web.entity.FixedExtension;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,11 +31,21 @@ public class BoardController {
         return "index";
     }
 
-    @PostMapping("/add-custom")
+    @PostMapping("/custom")
+    @ResponseBody
     public String createCustomExtension(@RequestBody CustomExtensionDto customExtensionDto){
         log.info("post mapping: {}", customExtensionDto.toString());
         customExtensionRepository.save(customExtensionDto.toEntity());
-        return "추";
+        return "추가 되었습니다";
     }
+
+    @ResponseBody
+    @DeleteMapping("/custom/{id}")
+    @Transactional
+    public String deleteCustomExtension(@PathVariable long id){
+        customExtensionRepository.deleteById(id);
+        return "삭제 되었습니다.";
+    }
+
 
 }

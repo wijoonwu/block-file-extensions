@@ -44,9 +44,9 @@
         <p style="padding-left: 10px">{{customExtensionSize}}/200</p>
           <div style="padding-left: 10px">
         {{#customExtensionList}}
-            <span style="display:inline-block; text-align: center; margin: auto; height: 33px; border: 1px solid black; border-radius:5px; width: 12%;">
-              {{name}}
-              <button style="border: none; background-color:transparent">
+            <span id="{{id}}" style="display:inline-block; text-align: center; margin: auto; height: 33px; border: 1px solid black; border-radius:5px; width: 12%;">
+                {{name}}
+              <button type="button" style="border: none; background-color:transparent" class="deleteCustomExtension">
                 <i class="fa-solid fa-xmark"></i>
               </button>
             </span>
@@ -57,6 +57,7 @@
   </tr>
 </table>
 <script src="insertCustomExtension.js"></script>
+<script src="deleteCustomExtension.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
