@@ -3,7 +3,7 @@ let update = {
     init: function () {
         let _this = this;
 
-        $(".updateFixedExtension").on("click", () => {
+        $(".update-fixed-extension").on("click", () => {
             _this.updateFixedExtension();
         });
     },

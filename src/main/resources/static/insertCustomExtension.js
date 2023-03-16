@@ -3,15 +3,14 @@ let object = {
     init: function () {
         let _this = this;
 
-        $("#insertCustomExtension").on("click", () => {
+        $("#custom-extension-name").on("click", () => {
             _this.insertCustomExtension();
         });
     },
 
-
     insertCustomExtension: function () {
         let CustomExtension = {
-            name: $("#customExtensionName").val()
+            name: $("#custom-extension-name").val()
         }
         $.ajax({
             type: "POST",
@@ -23,7 +22,6 @@ let object = {
             location.reload();
         });
     }
-
 }
 
 object.init();

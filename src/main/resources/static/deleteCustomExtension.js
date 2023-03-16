@@ -1,8 +1,8 @@
-let obj = {
+let del = {
 
     init: function () {
         let _this = this;
-        $(".deleteCustomExtension").on("click", () => {
+        $(".delete-custom-extension").on("click", () => {
             _this.deleteCustomExtension();
         });
     },
@@ -24,4 +24,4 @@ let obj = {
 
 }
 
-obj.init();
+del.init();
