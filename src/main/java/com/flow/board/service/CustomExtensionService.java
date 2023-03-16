@@ -25,12 +25,11 @@ public class CustomExtensionService {
     public String createCustomExtension(CustomExtensionDto customExtensionDto) {
         int totalCustomExtensionSize = customExtensionRepository.findAll().size();
         final int MAX_SIZE = CustomExtension.MAX_SIZE;
+        String name = customExtensionDto.getName();
 
         if (totalCustomExtensionSize > MAX_SIZE) {
             return "200개를 초과하여 등록할 수 없습니다.";
         }
-
-        String name = customExtensionDto.getName();
 
         if (customExtensionRepository.findByName(name).isPresent()) {
             return "이미 추가된 확장자 입니다.";
