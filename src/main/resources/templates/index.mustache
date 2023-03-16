@@ -15,6 +15,7 @@
 <h1>파일 확장자 차단</h1>
 <hr>
 <p class="file-restriction-description">파일 확장자에 따라 특정 형식의 파일을 첨부하거나 전송하지 못하도록 제한</p>
+<div class="table-container">
 <table class="extension-table">
     <tr>
         <th>고정 확장자</th>
@@ -41,7 +42,7 @@
         <th></th>
         <td colspan="7" class="custom-extension-list">
             <div class="custom-extension-container">
-                <p class="custom-extension-size">{{customExtensionSize}}/200</p>
+                <p class="custom-extension-size">{{customExtensionListSize}}/{{customExtensionMaxSize}}</p>
                 <div class="custom-extension-items">
                     {{#customExtensionList}}
                         <span class="custom-extension-item">
@@ -57,6 +58,7 @@
 
     </tr>
 </table>
+</div>
 <script src="js/insertCustomExtension.js"></script>
 <script src="js/deleteCustomExtension.js"></script>
 <script src="js/updateFixedExtension.js"></script>
