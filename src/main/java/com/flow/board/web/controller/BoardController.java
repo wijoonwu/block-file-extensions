@@ -43,9 +43,9 @@ public class BoardController {
     }
 
     @ResponseBody
-    @DeleteMapping("/custom/{id}")
-    public String deleteCustomExtension(@PathVariable long id){
-        return customExtensionService.deleteCustomExtension(id);
+    @DeleteMapping("/custom")
+    public String deleteCustomExtension(@RequestBody CustomExtensionDto customExtensionDto){
+        return customExtensionService.deleteCustomExtension(customExtensionDto);
     }
 
 

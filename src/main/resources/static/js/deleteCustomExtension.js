@@ -10,11 +10,13 @@ let del = {
 
     deleteCustomExtension: function () {
         let CustomExtension = {
-            id: event.target.parentElement.getAttribute('id')
+            id: event.target.parentElement.getAttribute('id'),
+            name: event.target.parentElement.getAttribute('name')
         }
         $.ajax({
             type: "DELETE",
-            url: "/custom/" +CustomExtension.id,
+            url: "/custom",
+            data:JSON.stringify(CustomExtension),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
             alert(response);
