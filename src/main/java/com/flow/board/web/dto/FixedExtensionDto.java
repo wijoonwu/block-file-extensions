@@ -11,7 +11,7 @@ public class FixedExtensionDto {
 
     private String name;
 
-    private String use;
+    private boolean use;
     public FixedExtension toEntity(){
         return new FixedExtension(id, name, use);
     }

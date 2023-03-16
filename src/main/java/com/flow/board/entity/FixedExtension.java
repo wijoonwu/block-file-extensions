@@ -1,5 +1,6 @@
 package com.flow.board.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,13 +18,12 @@ public class FixedExtension {
     @Id
     private long id;
 
+    @Column(unique = true, length = 20)
     private String name;
 
-    private String use;
+    private boolean use = false;
 
     public void updateUse() {
-        if(this.use.equals("false")){
-            this.use = "true";
-        } else this.use ="false";
+        this.use = !this.use;
     }
 }

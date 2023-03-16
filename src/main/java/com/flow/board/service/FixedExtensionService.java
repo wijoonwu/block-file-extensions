@@ -25,6 +25,8 @@ public class FixedExtensionService {
         String name = fixedExtensionDto.getName();
         FixedExtension fixedExtension = fixedExtensionRepository.findByName(name);
         fixedExtension.updateUse();
-        return "사용 상태가 변경되었습니다.";
+        if(fixedExtension.isUse()){
+            return "사용 상태로 변경되었습니다.";
+        } return "미사용 상태로 변경되었습니다.";
     }
 }
