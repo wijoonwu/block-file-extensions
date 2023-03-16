@@ -5,6 +5,15 @@ class CustomExtensionInserter {
 
     registerEventListeners() {
         $("#insert-custom-extension").on("click", this.insertCustomExtension.bind(this));
+        $(".custom-extension-input").on("input", this.filterKoreanInput.bind(this));
+    }
+
+    filterKoreanInput(event) {
+        const inputValue = event.target.value;
+        const filteredValue = inputValue.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''); // 한글 문자를 제거
+        if (inputValue !== filteredValue) {
+            event.target.value = filteredValue;
+        }
     }
 
     insertCustomExtension() {
@@ -25,3 +34,11 @@ class CustomExtensionInserter {
 }
 
 new CustomExtensionInserter();
+
+$(document).ready(function () {
+    $(".custom-extension-item").each(function () {
+        const textWidth = $(this).children("span").width();
+        const buttonWidth = $(this).children("button").outerWidth(true);
+        $(this).width(textWidth + buttonWidth + 10);
+    });
+});

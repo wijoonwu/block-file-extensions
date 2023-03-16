@@ -65,14 +65,22 @@ body {
 }
 
 .custom-extension-item {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 6ch;
+    padding: 5px;
+    margin: 3px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 4px;
     text-align: center;
-    margin: auto;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 12%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+
 .delete-custom-extension {
     border: none;
     background-color: transparent;
