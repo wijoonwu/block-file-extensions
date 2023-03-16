@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class BoardController {
+public class FileController {
     private final FixedExtensionService fixedExtensionService;
     private final CustomExtensionService customExtensionService;
 

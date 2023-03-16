@@ -43,16 +43,16 @@
         <td colspan="7" class="custom-extension-list">
             <div class="custom-extension-container">
                 <p class="custom-extension-size">{{customExtensionListSize}}/{{customExtensionMaxSize}}</p>
-                <div class="custom-extension-items">
-                    {{#customExtensionList}}
-                        <span class="custom-extension-item">
-                    {{name}}
-                            <button id="{{id}}" name="{{name}}" type="button" class="delete-custom-extension">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </span>
-                    {{/customExtensionList}}
-                </div>
+              <div class="custom-extension-items">
+                {{#customExtensionList}}
+                  <span class="custom-extension-item">
+        {{name}}
+                    <button id="{{id}}" data-name="{{name}}" type="button" class="delete-custom-extension">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </span>
+                {{/customExtensionList}}
+              </div>
             </div>
         </td>
 
