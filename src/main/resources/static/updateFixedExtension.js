@@ -4,7 +4,6 @@ let update = {
         let _this = this;
 
         $(".updateFixedExtension").on("click", () => {
-            alert(event.target.getAttribute('name'));
             _this.updateFixedExtension();
         });
     },
@@ -17,7 +16,7 @@ let update = {
         }
         $.ajax({
             type: "PUT",
-            url: "/custom",
+            url: "/fixed",
             data: JSON.stringify(CustomExtension),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
