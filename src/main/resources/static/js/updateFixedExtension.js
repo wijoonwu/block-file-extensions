@@ -10,7 +10,7 @@ class FixedExtensionUpdater {
     updateFixedExtension(event) {
         const fixedExtension = {
             id: event.target.getAttribute('id'),
-            name: $(this).attr('name')
+            name: event.target.getAttribute('name'),
         };
 
         $.ajax({
