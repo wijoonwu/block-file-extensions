@@ -1,63 +1,52 @@
 package com.flow.board.web.controller;
 
-import com.flow.board.repository.CustomExtensionRepository;
-import com.flow.board.repository.FixedExtensionRepository;
+import com.flow.board.service.CustomExtensionService;
+import com.flow.board.service.FixedExtensionService;
 import com.flow.board.web.dto.CustomExtensionDto;
 import com.flow.board.web.dto.FixedExtensionDto;
 import com.flow.board.web.entity.CustomExtension;
 import com.flow.board.web.entity.FixedExtension;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
-    private final FixedExtensionRepository fixedExtensionRepository;
-    private final CustomExtensionRepository customExtensionRepository;
+    private final FixedExtensionService fixedExtensionService;
+    private final CustomExtensionService customExtensionService;
 
     @GetMapping("/")
     public String index(Model model){
-        List<FixedExtension> fixedExtensionList = fixedExtensionRepository.findAll();
-        List<CustomExtension> customExtensionList = customExtensionRepository.findAll();
+        List<FixedExtension> fixedExtensionList = fixedExtensionService.readAll();
+        List<CustomExtension> customExtensionList = customExtensionService.readAll();
         model.addAttribute("fixedExtensionList", fixedExtensionList);
         model.addAttribute("customExtensionList", customExtensionList);
         model.addAttribute("customExtensionSize", customExtensionList.size());
         return "index";
     }
 
-    @PostMapping("/custom")
     @ResponseBody
+    @PutMapping("/fixed")
+    public String updateFixedExtension(@RequestBody FixedExtensionDto fixedExtensionDto){
+        return fixedExtensionService.updateFixedExtension(fixedExtensionDto);
+    }
+
+    @ResponseBody
+    @PostMapping("/custom")
     public String createCustomExtension(@RequestBody CustomExtensionDto customExtensionDto){
-        log.info("post mapping: {}", customExtensionDto.toString());
-        customExtensionRepository.save(customExtensionDto.toEntity());
-        return "추가 되었습니다";
+        return customExtensionService.createCustomExtension(customExtensionDto);
     }
 
     @ResponseBody
     @DeleteMapping("/custom/{id}")
-    @Transactional
     public String deleteCustomExtension(@PathVariable long id){
-        customExtensionRepository.deleteById(id);
-        return "삭제 되었습니다.";
+        return customExtensionService.deleteCustomExtension(id);
     }
 
-    @PutMapping("/custom")
-    @Transactional
-    @ResponseBody
-    public String updateFixedExtension(@RequestBody FixedExtensionDto fixedExtensionDto){
-        String name = fixedExtensionDto.getName();
-        FixedExtension fixedExtension = fixedExtensionRepository.findByName(name);
-        fixedExtension.updateUse();
-        log.info("fixed Use: {}", fixedExtension.getUse());
-        return "사용 상태가 변경되었습니다.";
-    }
 
 
 }
