@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CustomExtensionRepository extends JpaRepository<CustomExtension, Long> {
 
-    Optional<Object> findByName(String name);
+    Optional<CustomExtension> findByName(String name);
 
     void deleteByName(String name);
 }
