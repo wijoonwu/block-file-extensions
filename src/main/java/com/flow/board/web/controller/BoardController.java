@@ -25,7 +25,8 @@ public class BoardController {
         List<CustomExtension> customExtensionList = customExtensionService.readAll();
         model.addAttribute("fixedExtensionList", fixedExtensionList);
         model.addAttribute("customExtensionList", customExtensionList);
-        model.addAttribute("customExtensionSize", customExtensionList.size());
+        model.addAttribute("customExtensionListSize", customExtensionList.size());
+        model.addAttribute("customExtensionMaxSize", CustomExtension.MAX_SIZE);
         return "index";
     }
 

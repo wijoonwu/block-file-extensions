@@ -16,14 +16,28 @@ public class CustomExtensionService {
 
     private final CustomExtensionRepository customExtensionRepository;
 
-
     @Transactional(readOnly = true)
     public List<CustomExtension> readAll() {
         return customExtensionRepository.findAll();
     }
 
+    @Transactional
     public String createCustomExtension(CustomExtensionDto customExtensionDto) {
-        customExtensionRepository.save(customExtensionDto.toEntity());
+        int totalCustomExtensionSize = customExtensionRepository.findAll().size();
+        final int MAX_SIZE = CustomExtension.MAX_SIZE;
+
+        if (totalCustomExtensionSize > MAX_SIZE) {
+            return "200개를 초과하여 등록할 수 없습니다.";
+        }
+
+        String name = customExtensionDto.getName();
+
+        if (customExtensionRepository.findByName(name).isPresent()) {
+            return "이미 추가된 확장자 입니다.";
+        }
+
+        CustomExtension customExtension = customExtensionDto.toEntity();
+        customExtensionRepository.save(customExtension);
         return "추가 되었습니다.";
     }
 

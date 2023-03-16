@@ -1,10 +1,6 @@
 package com.flow.board.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -13,12 +9,17 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "CUSTOM_EXTENSION")
+@Table(name = "CUSTOM_EXTENSION", uniqueConstraints = { @UniqueConstraint(columnNames = "name")
+})
 public class CustomExtension {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(unique = true)
     private String name;
+
+    public static final int MAX_SIZE = 200;
+
 
 }
