@@ -1,6 +1,6 @@
-package com.flow.board.repository;
+package com.flow.file.biz.repository;
 
-import com.flow.board.entity.CustomExtension;
+import com.flow.file.biz.entity.CustomExtension;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

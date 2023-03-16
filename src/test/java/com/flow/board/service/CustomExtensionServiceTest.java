@@ -1,8 +1,9 @@
 package com.flow.board.service;
 
-import com.flow.board.entity.CustomExtension;
-import com.flow.board.repository.CustomExtensionRepository;
-import com.flow.board.web.dto.CustomExtensionDto;
+import com.flow.file.biz.entity.CustomExtension;
+import com.flow.file.biz.repository.CustomExtensionRepository;
+import com.flow.file.biz.service.CustomExtensionService;
+import com.flow.file.web.dto.CustomExtensionDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,7 @@ public class CustomExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("커스텀 확장자가 성공적으로 추가됩니다")
+    @DisplayName("커스텀 확장자 성공적 추가")
     public void createCustomExtension_addsSuccessfully() {
         when(customExtensionRepository.findByName(customExtensionDto.getName())).thenReturn(
             Optional.empty());
@@ -53,7 +54,7 @@ public class CustomExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("커스텀 확장자가 이미 존재합니다")
+    @DisplayName("커스텀 확장자 중복 등록")
     public void createCustomExtension_alreadyExists() {
         when(customExtensionRepository.findByName(customExtensionDto.getName())).thenReturn(
             Optional.of(customExtensionDto.toEntity()));
@@ -64,7 +65,7 @@ public class CustomExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("커스텀 확장자 최대 개수를 초과합니다")
+    @DisplayName("커스텀 확장자 최대 개수 초과")
     public void createCustomExtension_maxSizeExceeded() {
         when(customExtensionRepository.findByName(customExtensionDto.getName())).thenReturn(
             Optional.empty());
@@ -80,7 +81,7 @@ public class CustomExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("커스텀 확장자 이름의 최대 길이를 초과합니다")
+    @DisplayName("커스텀 확장자 이름 최대 길이 초과")
     public void createCustomExtension_maxLengthExceeded() {
         customExtensionDto = CustomExtensionDto.builder()
             .name("a".repeat(CustomExtension.MAX_LENGTH + 1))
@@ -92,7 +93,7 @@ public class CustomExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("커스텀 확장자가 성공적으로 삭제됩니다")
+    @DisplayName("커스텀 확장자 성공적으로 삭제")
     public void deleteCustomExtension_deletesSuccessfully() {
         doNothing().when(customExtensionRepository).deleteByName(customExtensionDto.getName());
 

@@ -1,8 +1,8 @@
-package com.flow.board.service;
+package com.flow.file.biz.service;
 
-import com.flow.board.repository.FixedExtensionRepository;
-import com.flow.board.web.dto.FixedExtensionDto;
-import com.flow.board.entity.FixedExtension;
+import com.flow.file.biz.entity.FixedExtension;
+import com.flow.file.biz.repository.FixedExtensionRepository;
+import com.flow.file.web.dto.FixedExtensionDto;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,9 +16,9 @@ import java.util.List;
 public class FixedExtensionService {
     protected final FixedExtensionRepository fixedExtensionRepository;
 
-    protected static final String EXTENSION_IN_USE = "사용상태로 변경되었습니다.";
-    protected static final String EXTENSION_NOT_IN_USE = "미사용 상태로 변경 되었습니다.";
-    protected static final String EXTENSION_NOT_FOUND = "확장자를 찾을 수 없습니다.";
+    public static final String EXTENSION_IN_USE = "사용상태로 변경되었습니다.";
+    public static final String EXTENSION_NOT_IN_USE = "미사용 상태로 변경 되었습니다.";
+    public static final String EXTENSION_NOT_FOUND = "확장자를 찾을 수 없습니다.";
 
     @Transactional(readOnly = true)
     public List<FixedExtension> readAll() {

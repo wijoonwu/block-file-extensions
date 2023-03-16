@@ -1,21 +1,21 @@
-let object = {
+class CustomExtensionInserter {
+    constructor() {
+        this.registerEventListeners();
+    }
 
-    init: function () {
-        let _this = this;
+    registerEventListeners() {
+        $("#insert-custom-extension").on("click", this.insertCustomExtension.bind(this));
+    }
 
-        $("#insert-custom-extension").on("click", () => {
-            _this.insertCustomExtension();
-        });
-    },
-
-    insertCustomExtension: function () {
-        let CustomExtension = {
+    insertCustomExtension() {
+        const customExtension = {
             name: $("#custom-extension-name").val()
-        }
+        };
+
         $.ajax({
             type: "POST",
             url: "/custom",
-            data: JSON.stringify(CustomExtension),
+            data: JSON.stringify(customExtension),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
             alert(response);
@@ -24,4 +24,4 @@ let object = {
     }
 }
 
-object.init();
+new CustomExtensionInserter();

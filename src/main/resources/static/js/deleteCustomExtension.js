@@ -1,29 +1,32 @@
-let del = {
+class CustomExtensionDeleter {
+    constructor() {
+        this.registerEventListeners();
+    }
 
-    init: function () {
-        let _this = this;
-        $(".delete-custom-extension").on("click", () => {
-            _this.deleteCustomExtension();
+    registerEventListeners() {
+        $(".custom-extension-items").on("click", ".delete-custom-extension", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            this.deleteCustomExtension(event);
         });
-    },
+    }
 
-
-    deleteCustomExtension: function () {
-        let CustomExtension = {
+    deleteCustomExtension(event) {
+        const customExtension = {
             id: event.target.parentElement.getAttribute('id'),
             name: event.target.parentElement.getAttribute('name')
-        }
+        };
+
         $.ajax({
             type: "DELETE",
             url: "/custom",
-            data:JSON.stringify(CustomExtension),
+            data: JSON.stringify(customExtension),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
             alert(response);
             location.reload();
         });
     }
-
 }
 
-del.init();
+new CustomExtensionDeleter();

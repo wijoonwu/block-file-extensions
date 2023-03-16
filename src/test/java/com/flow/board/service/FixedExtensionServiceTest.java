@@ -1,8 +1,9 @@
 package com.flow.board.service;
 
-import com.flow.board.entity.FixedExtension;
-import com.flow.board.repository.FixedExtensionRepository;
-import com.flow.board.web.dto.FixedExtensionDto;
+import com.flow.file.biz.entity.FixedExtension;
+import com.flow.file.biz.repository.FixedExtensionRepository;
+import com.flow.file.biz.service.FixedExtensionService;
+import com.flow.file.web.dto.FixedExtensionDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ public class FixedExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("모든 고정 확장자를 불러옵니다")
+    @DisplayName("모든 고정 확장자를 불러오기")
     public void readAll() {
         List<FixedExtension> fixedExtensions = List.of(fixedExtensionDto.toEntity());
         when(fixedExtensionRepository.findAll()).thenReturn(fixedExtensions);
@@ -48,7 +49,7 @@ public class FixedExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("고정 확장자 사용 상태를 업데이트합니다")
+    @DisplayName("고정 확장자 사용 상태를 업데이트")
     public void updateFixedExtension() {
         when(fixedExtensionRepository.findByName(fixedExtensionDto.getName())).thenReturn(Optional.of(fixedExtensionDto.toEntity()));
 
@@ -58,7 +59,7 @@ public class FixedExtensionServiceTest {
     }
 
     @Test
-    @DisplayName("존재하지 않는 고정 확장자를 업데이트하려고 합니다")
+    @DisplayName("존재하지 않는 고정 확장자를 업데이트")
     public void updateFixedExtension_notFound() {
         when(fixedExtensionRepository.findByName(fixedExtensionDto.getName())).thenReturn(Optional.empty());
 

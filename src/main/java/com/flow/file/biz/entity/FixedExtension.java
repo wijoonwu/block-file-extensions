@@ -1,4 +1,4 @@
-package com.flow.board.entity;
+package com.flow.file.biz.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

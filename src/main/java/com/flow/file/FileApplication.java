@@ -1,13 +1,13 @@
-package com.flow.board;
+package com.flow.file;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BoardApplication {
+public class FileApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BoardApplication.class, args);
+		SpringApplication.run(FileApplication.class, args);
 	}
 
 }

@@ -1,6 +1,6 @@
-package com.flow.board.web.dto;
+package com.flow.file.web.dto;
 
-import com.flow.board.entity.FixedExtension;
+import com.flow.file.biz.entity.FixedExtension;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

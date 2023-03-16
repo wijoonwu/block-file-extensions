@@ -1,11 +1,11 @@
-package com.flow.board.web.controller;
+package com.flow.file.web.controller;
 
-import com.flow.board.service.CustomExtensionService;
-import com.flow.board.service.FixedExtensionService;
-import com.flow.board.web.dto.CustomExtensionDto;
-import com.flow.board.web.dto.FixedExtensionDto;
-import com.flow.board.entity.CustomExtension;
-import com.flow.board.entity.FixedExtension;
+import com.flow.file.biz.service.CustomExtensionService;
+import com.flow.file.biz.service.FixedExtensionService;
+import com.flow.file.web.dto.CustomExtensionDto;
+import com.flow.file.web.dto.FixedExtensionDto;
+import com.flow.file.biz.entity.CustomExtension;
+import com.flow.file.biz.entity.FixedExtension;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
