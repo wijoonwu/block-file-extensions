@@ -95,10 +95,13 @@ public class CustomExtensionServiceTest {
     @Test
     @DisplayName("커스텀 확장자 성공적으로 삭제")
     public void deleteCustomExtension_deletesSuccessfully() {
-        doNothing().when(customExtensionRepository).deleteByName(customExtensionDto.getName());
+        when(customExtensionRepository.findByName(customExtensionDto.getName())).thenReturn(
+            Optional.of(customExtensionDto.toEntity()));
+        doNothing().when(customExtensionRepository).delete(any(CustomExtension.class));
 
         String result = customExtensionService.deleteCustomExtension(customExtensionDto);
         assertThat(result).isEqualTo(CustomExtensionService.DELETE_SUCCESS_MSG);
     }
+
 }
 
