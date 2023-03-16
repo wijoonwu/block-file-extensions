@@ -10,7 +10,7 @@ let obj = {
 
     deleteCustomExtension: function () {
         let CustomExtension = {
-            id: event.target.parentElement.parentElement.getAttribute('id')
+            id: event.target.parentElement.getAttribute('id')
         }
         $.ajax({
             type: "DELETE",

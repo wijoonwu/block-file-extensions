@@ -3,8 +3,14 @@ package com.flow.board.web.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Getter
 @Table(name = "FIXED_EXTENSION")
 public class FixedExtension {
 
@@ -13,6 +19,11 @@ public class FixedExtension {
 
     private String name;
 
-    private boolean use;
+    private String use;
 
+    public void updateUse() {
+        if(this.use.equals("false")){
+            this.use = "true";
+        } else this.use ="false";
+    }
 }

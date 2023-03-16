@@ -3,6 +3,7 @@ package com.flow.board.web.controller;
 import com.flow.board.repository.CustomExtensionRepository;
 import com.flow.board.repository.FixedExtensionRepository;
 import com.flow.board.web.dto.CustomExtensionDto;
+import com.flow.board.web.dto.FixedExtensionDto;
 import com.flow.board.web.entity.CustomExtension;
 import com.flow.board.web.entity.FixedExtension;
 import lombok.RequiredArgsConstructor;
@@ -45,6 +46,17 @@ public class BoardController {
     public String deleteCustomExtension(@PathVariable long id){
         customExtensionRepository.deleteById(id);
         return "삭제 되었습니다.";
+    }
+
+    @PutMapping("/custom")
+    @Transactional
+    @ResponseBody
+    public String updateFixedExtension(@RequestBody FixedExtensionDto fixedExtensionDto){
+        String name = fixedExtensionDto.getName();
+        FixedExtension fixedExtension = fixedExtensionRepository.findByName(name);
+        fixedExtension.updateUse();
+        log.info("fixed Use: {}", fixedExtension.getUse());
+        return "사용 상태가 변경되었습니다.";
     }
 
 
