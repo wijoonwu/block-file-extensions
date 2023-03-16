@@ -1,4 +1,4 @@
-package com.flow.board.web.entity;
+package com.flow.board.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

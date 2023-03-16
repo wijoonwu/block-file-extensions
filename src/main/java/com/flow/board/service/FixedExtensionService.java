@@ -3,7 +3,7 @@ package com.flow.board.service;
 
 import com.flow.board.repository.FixedExtensionRepository;
 import com.flow.board.web.dto.FixedExtensionDto;
-import com.flow.board.web.entity.FixedExtension;
+import com.flow.board.entity.FixedExtension;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

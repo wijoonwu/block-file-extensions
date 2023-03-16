@@ -3,7 +3,7 @@ let object = {
     init: function () {
         let _this = this;
 
-        $("#custom-extension-name").on("click", () => {
+        $("#insert-custom-extension").on("click", () => {
             _this.insertCustomExtension();
         });
     },

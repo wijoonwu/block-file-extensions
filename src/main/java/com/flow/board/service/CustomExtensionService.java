@@ -2,7 +2,7 @@ package com.flow.board.service;
 
 import com.flow.board.repository.CustomExtensionRepository;
 import com.flow.board.web.dto.CustomExtensionDto;
-import com.flow.board.web.entity.CustomExtension;
+import com.flow.board.entity.CustomExtension;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

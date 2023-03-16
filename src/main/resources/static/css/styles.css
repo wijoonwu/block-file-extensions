@@ -1,12 +1,17 @@
 .file-restriction-description {
     font-size: 26px;
 }
-
 .extension-table {
     width: 70%;
     height: 50px;
     display: table;
     table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+}
+
+.extension-table th{
+    white-space: nowrap;
 }
 
 .extension-cell {
@@ -27,12 +32,14 @@
     height: 364px;
     border: 1px solid black;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .custom-extension-container {
     position: relative;
     height: 100%;
     padding-left: 10px;
+    box-sizing: border-box;
 }
 
 .custom-extension-size {

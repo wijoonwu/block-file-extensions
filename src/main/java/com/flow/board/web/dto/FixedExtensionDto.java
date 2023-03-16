@@ -1,6 +1,6 @@
 package com.flow.board.web.dto;
 
-import com.flow.board.web.entity.FixedExtension;
+import com.flow.board.entity.FixedExtension;
 import lombok.Getter;
 import lombok.ToString;
 
