@@ -10,14 +10,14 @@ let update = {
 
 
     updateFixedExtension: function () {
-        let CustomExtension = {
+        let FixedExtension = {
             id: event.target.getAttribute('id'),
             name: event.target.getAttribute('name')
         }
         $.ajax({
             type: "PUT",
             url: "/fixed",
-            data: JSON.stringify(CustomExtension),
+            data: JSON.stringify(FixedExtension),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
             alert(response);
