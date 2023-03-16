@@ -1,6 +1,12 @@
 .file-restriction-description {
     font-size: 26px;
 }
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
 .extension-table {
     width: 70%;
     height: 50px;
@@ -51,7 +57,7 @@
     position: absolute;
     padding-left: 10px;
     padding-top: 20px;
-    top: 20px; /* 수정 */
+    top: 20px;
     width: calc(100% - 10px);
 }
 
