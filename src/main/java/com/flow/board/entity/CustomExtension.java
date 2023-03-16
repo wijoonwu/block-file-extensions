@@ -16,10 +16,12 @@ public class CustomExtension {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 20)
     private String name;
 
     public static final int MAX_SIZE = 200;
+
+    public static final int MAX_LENGTH = 20;
 
 
 }

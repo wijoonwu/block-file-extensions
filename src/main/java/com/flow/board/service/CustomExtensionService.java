@@ -21,18 +21,19 @@ public class CustomExtensionService {
         return customExtensionRepository.findAll();
     }
 
-    @Transactional
     public String createCustomExtension(CustomExtensionDto customExtensionDto) {
         int totalCustomExtensionSize = customExtensionRepository.findAll().size();
-        final int MAX_SIZE = CustomExtension.MAX_SIZE;
         String name = customExtensionDto.getName();
-
-        if (totalCustomExtensionSize > MAX_SIZE) {
-            return "200개를 초과하여 등록할 수 없습니다.";
-        }
 
         if (customExtensionRepository.findByName(name).isPresent()) {
             return "이미 추가된 확장자 입니다.";
+        }
+        if (totalCustomExtensionSize > CustomExtension.MAX_SIZE) {
+            return "200개를 초과하여 등록할 수 없습니다.";
+        }
+
+        if (customExtensionDto.getName().length() > CustomExtension.MAX_LENGTH ) {
+            return "20글자를 초과할 수 없습니다.";
         }
 
         CustomExtension customExtension = customExtensionDto.toEntity();
@@ -40,8 +41,9 @@ public class CustomExtensionService {
         return "추가 되었습니다.";
     }
 
-    public String deleteCustomExtension(long id) {
-        customExtensionRepository.deleteById(id);
+    public String deleteCustomExtension(CustomExtensionDto customExtensionDto) {
+        String name = customExtensionDto.getName();
+        customExtensionRepository.deleteByName(name);
         return "삭제되었습니다";
     }
 }
