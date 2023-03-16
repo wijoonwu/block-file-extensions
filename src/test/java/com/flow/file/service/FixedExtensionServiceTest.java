@@ -1,4 +1,4 @@
-package com.flow.board.service;
+package com.flow.file.service;
 
 import com.flow.file.biz.entity.FixedExtension;
 import com.flow.file.biz.repository.FixedExtensionRepository;

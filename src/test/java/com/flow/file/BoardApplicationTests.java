@@ -1,4 +1,4 @@
-package com.flow.board;
+package com.flow.file;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
