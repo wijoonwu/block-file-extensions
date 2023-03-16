@@ -2,9 +2,11 @@ package com.flow.board.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
