@@ -1,0 +1,63 @@
+.file-restriction-description {
+    font-size: 26px;
+}
+
+.extension-table {
+    width: 70%;
+    height: 50px;
+    display: table;
+    table-layout: fixed;
+}
+
+.extension-cell {
+    display: table-cell;
+}
+
+.custom-extension-input {
+    width: 97%;
+    border-radius: 5px;
+}
+
+.custom-extension-btn {
+    border: 0px;
+    border-radius: 5px;
+}
+.custom-extension-list {
+    width: 100%;
+    height: 364px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.custom-extension-container {
+    position: relative;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.custom-extension-size {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.custom-extension-items {
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 20px;
+    top: 20px; /* 수정 */
+    width: calc(100% - 10px);
+}
+
+.custom-extension-item {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    height: 33px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 12%;
+}
+.delete-custom-extension {
+    border: none;
+    background-color: transparent;
+}
