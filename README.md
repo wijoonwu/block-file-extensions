@@ -16,11 +16,11 @@
 
 ```bash
 git clone https://github.com/wijoonwu/block-file-extensions
-
 cd block-file-extensions
 ./gradlew bootRun
 ```
 2. 웹브라우저를 열고 `localhost:8080`에 접속합니다.
+
 ### Windows
 1. git bash 창에 아래 명령어를 입력합니다.
 ```bash
@@ -28,7 +28,6 @@ git clone https://github.com/wijoonwu/block-file-extensions
 cd block-file-extensions
 gradlew bootRun
 ```
-
 
 2. 웹브라우저를 열고 `localhost:8080`에 접속합니다.
 
