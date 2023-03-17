@@ -1,26 +1,31 @@
 package com.flow.file.web.controller;
 
+import com.flow.file.biz.entity.CustomExtension;
+import com.flow.file.biz.entity.FixedExtension;
 import com.flow.file.biz.service.CustomExtensionService;
 import com.flow.file.biz.service.FixedExtensionService;
 import com.flow.file.web.dto.CustomExtensionDto;
 import com.flow.file.web.dto.FixedExtensionDto;
-import com.flow.file.biz.entity.CustomExtension;
-import com.flow.file.biz.entity.FixedExtension;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequiredArgsConstructor
 public class FileController {
+
     private final FixedExtensionService fixedExtensionService;
     private final CustomExtensionService customExtensionService;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
         List<FixedExtension> fixedExtensionList = fixedExtensionService.readAll();
         List<CustomExtension> customExtensionList = customExtensionService.readAll();
         model.addAttribute("fixedExtensionList", fixedExtensionList);
@@ -32,22 +37,21 @@ public class FileController {
 
     @ResponseBody
     @PutMapping("/fixed")
-    public String updateFixedExtension(@RequestBody FixedExtensionDto fixedExtensionDto){
+    public String updateFixedExtension(@RequestBody FixedExtensionDto fixedExtensionDto) {
         return fixedExtensionService.updateFixedExtension(fixedExtensionDto);
     }
 
     @ResponseBody
     @PostMapping("/custom")
-    public String createCustomExtension(@RequestBody CustomExtensionDto customExtensionDto){
+    public String createCustomExtension(@RequestBody CustomExtensionDto customExtensionDto) {
         return customExtensionService.createCustomExtension(customExtensionDto);
     }
 
     @ResponseBody
     @DeleteMapping("/custom")
-    public String deleteCustomExtension(@RequestBody CustomExtensionDto customExtensionDto){
+    public String deleteCustomExtension(@RequestBody CustomExtensionDto customExtensionDto) {
         return customExtensionService.deleteCustomExtension(customExtensionDto);
     }
-
 
 
 }

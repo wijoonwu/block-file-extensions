@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class FixedExtensionDto {
+
     private long id;
     private String name;
     private boolean use;

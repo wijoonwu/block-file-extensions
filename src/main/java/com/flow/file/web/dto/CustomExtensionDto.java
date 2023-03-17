@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class CustomExtensionDto {
+
     private long id;
     private String name;
 

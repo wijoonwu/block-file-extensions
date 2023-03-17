@@ -1,27 +1,28 @@
 class FixedExtensionUpdater {
-    constructor() {
-        this.registerEventListeners();
-    }
+  constructor() {
+    this.registerEventListeners();
+  }
 
-    registerEventListeners() {
-        $(".update-fixed-extension").on("click", this.updateFixedExtension.bind(this));
-    }
+  registerEventListeners() {
+    $(".update-fixed-extension").on("click",
+        this.updateFixedExtension.bind(this));
+  }
 
-    updateFixedExtension(event) {
-        const fixedExtension = {
-            id: event.target.getAttribute('id'),
-            name: event.target.getAttribute('name'),
-        };
+  updateFixedExtension(event) {
+    const fixedExtension = {
+      id: event.target.getAttribute('id'),
+      name: event.target.getAttribute('name'),
+    };
 
-        $.ajax({
-            type: "PUT",
-            url: "/fixed",
-            data: JSON.stringify(fixedExtension),
-            contentType: "application/json; charset=utf-8"
-        }).done(function (response) {
-            alert(response);
-        });
-    }
+    $.ajax({
+      type: "PUT",
+      url: "/fixed",
+      data: JSON.stringify(fixedExtension),
+      contentType: "application/json; charset=utf-8"
+    }).done(function (response) {
+      alert(response);
+    });
+  }
 }
 
 new FixedExtensionUpdater();

@@ -3,19 +3,16 @@ package com.flow.file.biz.service;
 import com.flow.file.biz.entity.CustomExtension;
 import com.flow.file.biz.repository.CustomExtensionRepository;
 import com.flow.file.web.dto.CustomExtensionDto;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 @Transactional
 @Service
 public class CustomExtensionService {
-
-    private final CustomExtensionRepository customExtensionRepository;
 
     public static final String EXISTING_EXTENSION_MSG = "이미 추가된 확장자 입니다.";
     public static final String MAX_SIZE_EXCEEDED_MSG = "200개를 초과하여 등록할 수 없습니다.";
@@ -23,7 +20,7 @@ public class CustomExtensionService {
     public static final String ADD_SUCCESS_MSG = "추가 되었습니다.";
     public static final String DELETE_SUCCESS_MSG = "삭제되었습니다.";
     public static final String DELETE_FAILURE_MSG = "삭제에 실패하였습니다.";
-
+    private final CustomExtensionRepository customExtensionRepository;
 
     @Transactional(readOnly = true)
     public List<CustomExtension> readAll() {
@@ -40,7 +37,7 @@ public class CustomExtensionService {
             return MAX_SIZE_EXCEEDED_MSG;
         }
 
-        if (customExtensionDto.getName().length() > CustomExtension.MAX_LENGTH ) {
+        if (customExtensionDto.getName().length() > CustomExtension.MAX_LENGTH) {
             return MAX_LENGTH_EXCEEDED_MSG;
         }
 
