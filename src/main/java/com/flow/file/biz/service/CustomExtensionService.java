@@ -52,9 +52,10 @@ public class CustomExtensionService {
     public String deleteCustomExtension(CustomExtensionDto customExtensionDto) {
         String name = customExtensionDto.getName();
         Optional<CustomExtension> target = customExtensionRepository.findByName(name);
-        if(target.isPresent()){
-            customExtensionRepository.delete(target.get());
+        return target.map(customExtension -> {
+            customExtensionRepository.delete(customExtension);
             return DELETE_SUCCESS_MSG;
-        } return DELETE_FAILURE_MSG;
+        }).orElse(DELETE_FAILURE_MSG);
     }
+
 }
