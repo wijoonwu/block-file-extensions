@@ -9,5 +9,4 @@ public interface CustomExtensionRepository extends JpaRepository<CustomExtension
 
     Optional<CustomExtension> findByName(String name);
 
-    void deleteByName(String name);
 }
