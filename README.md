@@ -33,3 +33,32 @@
 - Application Load Balancer
 - Route 53
 
+## 프로젝트 구조
+~~~
+.
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── com.flow.file
+│   │   │   │   ├── biz
+│   │   │   │   │   ├── entity
+│   │   │   │   │   ├── repository
+│   │   │   │   │   └── service
+│   │   │   │   └── web
+│   │   │   │       ├── controller
+│   │   │   │       └── dto
+│   │   ├── resources
+│   │   │   ├── static
+│   │   │   │   ├── css
+│   │   │   │   └── js
+│   │   │   └── templates
+│   └── test
+│       ├── java
+│       │   └── com.flow.file
+│       │       └── service
+│       └── resources
+├── .gitignore
+├── build.gradle
+└── README.md
+~~~
+
