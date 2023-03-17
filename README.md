@@ -2,7 +2,6 @@
 
 ## 배포 URL
 - https://flow.block-file-extensions.link/
-- http://3.39.12.39/
 
 <br>
 
