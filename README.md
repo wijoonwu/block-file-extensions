@@ -88,9 +88,11 @@ gradlew bootRun
 - IntelliJ IDEA
 - Git
 - Gradle 7.6.1
+
 ### 배포 및 인프라
-#### Amazon Web Services 
-- EC2
-- ACM (AWS Certificate Manager)
-- Application Load Balancer
-- Route 53
+- nginx 1.22.1
+- Amazon Web Services
+  - EC2
+  - ACM (AWS Certificate Manager)
+  - Application Load Balancer
+  - Route 53
