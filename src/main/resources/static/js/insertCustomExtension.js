@@ -6,14 +6,15 @@ class CustomExtensionInserter {
   registerEventListeners() {
     $("#insert-custom-extension").on("click",
         this.insertCustomExtension.bind(this));
-    $(".custom-extension-input").on("input", this.filterInvalidInput.bind(this));
+    $(".custom-extension-input").on("input", this.filterInput.bind(this));
   }
 
-  filterInvalidInput(event) {
-    const inputValue = event.target.value;
-    const filteredValue = inputValue.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\s]|(select|from|where|alert)/gi, ''); // 한글 문자, 공백, SQL 및 JS 명령어를 제거
-    if (inputValue !== filteredValue) {
-      event.target.value = filteredValue;
+  filterInput(event) {
+    let inputValue = event.target.value;
+    inputValue = inputValue.replace(/<\/?[a-z][\s\S]*>/gi, ''); // HTML 태그 제거
+    inputValue = inputValue.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣\s]/g, ''); // 한글 문자 및 공백 제거
+    if (event.target.value !== inputValue) {
+      event.target.value = inputValue;
     }
   }
 
