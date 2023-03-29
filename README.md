@@ -1,8 +1,4 @@
 # block-file-extensions
-
-## 배포 URL
-- https://flow.block-file-extensions.link/
-
 <br>
 
 <img src="https://user-images.githubusercontent.com/57162810/225782939-63662807-1a43-4708-8c2b-5c3dbe9d41ca.png" height="300" width="400">
